@@ -11,8 +11,7 @@ const LoginScreen = ({ setIsAuthenticated }) => {
     const bgColor = useColorModeValue('light.background.50', 'dark.background.900');
     const textColor = useColorModeValue('light.text.50', 'dark.text.50');
     const linkColor = useColorModeValue("indigo.500", "indigo.300"); 
-
-    const flexDir = useBreakpointValue({ base: 'column', lg: 'row' });
+    const flexDir = useBreakpointValue({ base: 'column', lg: 'column' });
 
     const handleLogin = () => {
         if (email && password) { 
@@ -25,20 +24,22 @@ const LoginScreen = ({ setIsAuthenticated }) => {
 
     return (
         <Center w="100%" bg={bgColor} flex={1}>
-            <Image 
-                source={require('../../assets/icon.png')} 
-                style={{ width: '100%', height: 200, marginBottom: 20 }} 
-                resizeMode="contain"
-            />
-            <Box safeArea p="2" py="8" w="90%" maxW="290">
-                <Heading size="lg" fontWeight="600" color={textColor}>
-                    Welcome
-                </Heading>
-                <Heading mt="1" color={textColor} fontWeight="medium" size="xs">
-                    Sign in to continue!
-                </Heading>
+            <VStack w="90%" maxW="300" space={5} alignItems="center">
+                <Image 
+                    source={require('../../assets/icon.png')} 
+                    style={{ width: '100%', height: 200, marginBottom: 20 }} 
+                    resizeMode="contain"
+                />
+                <Box safeArea p="2" py="8" w="100%" alignItems="center">
+                    <Heading size="lg" fontWeight="600" color={textColor}>
+                        Welcome
+                    </Heading>
+                    <Heading mt="1" color={textColor} fontWeight="medium" size="xs">
+                        Sign in to continue!
+                    </Heading>
+                </Box>
 
-                <VStack space={3} mt="5" flexDirection={flexDir}>
+                <VStack space={4} mt="5" w="100%">
                     <FormControl>
                         <FormControl.Label>Email</FormControl.Label>
                         <Input value={email} onChangeText={setEmail} />
@@ -59,17 +60,17 @@ const LoginScreen = ({ setIsAuthenticated }) => {
                     </Button>
                     <HStack mt="6" justifyContent="center">
                         <Text fontSize="sm" color={textColor}>
-                            I'm a new user. 
-                            <Button
-                                variant="link"
-                                colorScheme="indigo"
-                                onPress={() => navigation.navigate('Register')}>
-                                Register
-                            </Button>
+                            I'm a new user.{" "}
                         </Text>
+                        <Button
+                            variant="link"
+                            colorScheme="indigo"
+                            onPress={() => navigation.navigate('Register')}>
+                            Register
+                        </Button>
                     </HStack>
                 </VStack>
-            </Box>
+            </VStack>
         </Center>
     );
 };
