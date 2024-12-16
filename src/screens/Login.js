@@ -10,7 +10,7 @@ const LoginScreen = ({ setIsAuthenticated }) => {
 
     const bgColor = useColorModeValue('light.background.50', 'dark.background.900');
     const textColor = useColorModeValue('light.text.50', 'dark.text.50');
-    const linkColor = useColorModeValue("indigo.500", "indigo.300"); 
+    const linkColor = useColorModeValue("pink.500", "pink.300"); 
     const flexDir = useBreakpointValue({ base: 'column', lg: 'column' });
 
     const handleLogin = () => {
@@ -55,7 +55,7 @@ const LoginScreen = ({ setIsAuthenticated }) => {
                             Forget Password?
                         </Link>
                     </FormControl>
-                    <Button mt="2" colorScheme="indigo" onPress={handleLogin}>
+                    <Button mt="2" colorScheme="pink" onPress={handleLogin}>
                         Login
                     </Button>
                     <HStack mt="6" justifyContent="center">
@@ -64,7 +64,7 @@ const LoginScreen = ({ setIsAuthenticated }) => {
                         </Text>
                         <Button
                             variant="link"
-                            colorScheme="indigo"
+                            colorScheme="pink"
                             onPress={() => navigation.navigate('Register')}>
                             Register
                         </Button>

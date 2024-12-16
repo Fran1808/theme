@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from "@react-navigation/native";
+import { createDrawerNavigator }  from '@react-navigation/drawer';
+
 import { Box, NativeBaseProvider, VStack, useColorModeValue } from 'native-base';
 import theme from './theme';
 import ToggleDarkMode from './ToggleDarkMode';
@@ -13,9 +15,11 @@ import Profile from './src/screens/Profile';
 import Config from './src/screens/Config';
 import Register from './src/screens/Register';
 import Login from './src/screens/Login';
+const Drawer = createDrawerNavigator();
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
+
 
 const MainTab = () => {
   return (
@@ -68,6 +72,7 @@ const App = () => {
             <Stack.Screen name="MainTab" component={MainTab} options={{ headerShown: false }} />
           </Stack.Navigator>
         </VStack>
+       
       </NavigationContainer>
     </NativeBaseProvider>
   );
